@@ -1,0 +1,21 @@
+div
+  header#banner.hero-unit
+    .container
+      div.row
+        div.col-md-offset-5.col-md-4
+          h4 Recent Posts
+      hr
+      div.row
+        div.col-md-4(ng-repeat="list in $ctrl.lists")
+          blockquote
+            | {{list.post}}
+            small
+              | {{list.user.name}}
+  div.container
+    div.jumbotron
+      div.row
+        div.col-md-6
+          h4 Keep posting awesome things
+        div.col-md-6
+          a.btn.btn-default.btn-lg.btn-block(ui-sref="register")
+            | Join

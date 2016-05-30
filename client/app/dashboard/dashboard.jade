@@ -1,0 +1,22 @@
+div.row
+  div.col-md-12.col-md-offset-1
+    form(novalidate name="postForm" ng-submit="vm.submit(postForm)" id="postForm")
+      div.row
+        div.col-md-8
+          div.form-group.form-group-lg(ng-class='{ "has-success": postForm.post.$valid && postForm.post.$dirty,\
+          "has-error": postForm.post.$invalid && postForm.post.$dirty }')
+            textarea.form-control.input-lg(type="text" cols="4" rows="3" name="post" ng-model="vm.formData.post" required placeholder="Write something")
+        div.col-md-4
+          div.form-group
+            button.btn.btn-default.btn-lg(type='submit')
+              | Post
+div.row
+  div.col-md-offset-1.col-md-10.post-class
+    div.media(ng-repeat="list in vm.postList track by $index")
+      div.pull-left
+        a
+          img.media-object.img-circle(src="http://avatars.scribblelive.com/default.png" height="40" width="40")
+      div.media-body
+        h4.media-heading
+          | {{list.user.name}}
+        p {{list.post}}
